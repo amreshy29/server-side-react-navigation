@@ -6,11 +6,12 @@ class HelloMessage extends React.Component {
     render() {
 
         return (
-        <DefaultLayout>
+            <DefaultLayout>
+                <div id="root">
 
-                <NavBar selectedIndex="" data={this.props.navigation}></NavBar>
-
-        </DefaultLayout>);
+                </div>
+            </DefaultLayout>
+        );
     }
 }
 
