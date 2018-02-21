@@ -13,6 +13,28 @@ module.exports = {
               test: /\.js$/,
               exclude: /(node_modules|bower_components)/,
               use:'babel-loader'
+            },
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules:true,
+                            importLoaders: 1
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            modules :true
+                        }
+                    }
+                ]
             }
       ]
     },

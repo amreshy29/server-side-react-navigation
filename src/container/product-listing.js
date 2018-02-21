@@ -11,9 +11,6 @@ class ProductListing extends React.Component{
     constructor(props){
         super(props);
 
-        this.state = {
-            searchString : ""
-        };
         this.searchHandler = this.searchHandler.bind(this);
     }
 
@@ -22,21 +19,12 @@ class ProductListing extends React.Component{
     }
 
     searchHandler (searchKey){
-        this.setState({
-            searchString:searchKey
-        })
-
+        this.props.dispatch(PLPActions.searchProductByName(searchKey))
     }
 
     createCardList () {
-        let searchString = this.state.searchString;
-        let filteredCards = this.props.products;
 
-        if(searchString !== ""){
-            filteredCards = this.props.products.filter((item) => {
-                return item.name == searchString;
-            });
-        }
+        let filteredCards = this.props.products;
 
         let cards = filteredCards.map((item, index) => {
                 return (
@@ -44,7 +32,6 @@ class ProductListing extends React.Component{
                 )
         });
         return cards;
-
     }
 
     render(){
