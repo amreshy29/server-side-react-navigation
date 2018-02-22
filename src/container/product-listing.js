@@ -15,11 +15,12 @@ class ProductListing extends React.Component{
     }
 
     componentDidMount(){
-        this.props.dispatch(PLPActions.getAllProducts());
+
+        this.props.dispatch({type:"GET_DATA"});
     }
 
     searchHandler (searchKey){
-        this.props.dispatch(PLPActions.searchProductByName(searchKey))
+       // this.props.dispatch({type:"SEARCH_PRODUCTS", data: searchKey})
     }
 
     createCardList () {
